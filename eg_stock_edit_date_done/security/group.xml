@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="res.groups" id="update_effective_date">
+        <field name="name">Update Effective Date</field>
+    </record>
+</odoo>

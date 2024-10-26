@@ -1,0 +1,20 @@
+<odoo>
+    <record id="view_stock_picking_inherit_view" model="ir.ui.view">
+        <field name="name">view.stock.picking.inherit.view</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <!-- Usar colspan para el botón de actualización -->
+            <xpath expr="//field[@name='origin']" position="after">
+                <div colspan="2" style="display: inline-block; vertical-align: middle;">
+                    <button type="object" class="btn-secondary" 
+                            name="update_date_done" 
+                            string="Actualizar Fecha Efectiva" 
+                            groups="eg_stock_edit_date_done.update_effective_date" 
+                            invisible="state not in ['done','cancel']"
+                            style="margin-left: 10px;"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
