@@ -1,0 +1,18 @@
+<odoo>
+    <!-- Instrucción para heredar y modificar la vista de formulario de purchase.order -->
+    <record id="view_purchase_order_form_xlsx" model="ir.ui.view">
+        <field name="name">purchase.order.form.xlsx</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <!-- Añadir botón al header de la vista de formulario de la orden de compra -->
+            <xpath expr="//header" position="inside">
+                <button name="%(action_purchase_order_xlsx)d"
+                        string="Exportar para Disal"
+                        type="action"
+                        class="oe_highlight"
+                        icon="fa-download"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

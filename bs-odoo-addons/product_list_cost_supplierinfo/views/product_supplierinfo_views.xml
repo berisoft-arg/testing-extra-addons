@@ -1,0 +1,19 @@
+<odoo>
+  <data>
+  
+    <record model="ir.ui.view" id="product_supplierinfo_name_list">
+      <field name="name">product.supplierinfo.name.list</field>
+      <field name="model">product.supplierinfo</field>
+      <field name="inherit_id" ref="product.product_supplierinfo_tree_view"/>
+      <field name="arch" type="xml">
+          <field name="price" position="before">
+              <field name="list_name"/>  
+          </field>
+          <field name="discount" position="after">
+            <field name="product_cost"/>  
+          </field>
+      </field>
+    </record>
+    
+  </data>
+</odoo>
