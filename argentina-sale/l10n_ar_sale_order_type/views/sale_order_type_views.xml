@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="sot_sale_order_type_form_view" model="ir.ui.view">
+        <field name="name">sale.order.type.form</field>
+        <field name="model">sale.order.type</field>
+        <field name="inherit_id" ref="sale_order_type.sot_sale_order_type_form_view"/>
+        <field name="arch" type="xml">
+            <field name="sequence_id" position="after">
+                <field name="sale_checkbook_id" groups="l10n_ar_sale.use_sale_checkbook"/>
+            </field>
+        </field>
+    </record>
+</odoo>
