@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="view_stock_operation_wizard_form" model="ir.ui.view">
+        <field name="name">stock.operation.wizard.form</field>
+        <field name="model">stock.operation.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Change Locations">
+                <group>
+                    <group string="Locations">
+                        <field name="picking_id" invisible="1"/>
+                        <field name="picking_source_location_id" invisible="1"/>
+                        <field name="picking_destination_location_id" invisible="1"/>
+                        <field name="location_id" domain="[('id', 'child_of', picking_source_location_id)]"/>
+                        <field name="location_dest_id" domain="[('id', 'child_of', picking_destination_location_id)]"/>
+                    </group>
+                </group>
+                <footer>
+                    <button string="Confirm" name="action_change_location" type="object" class="oe_highlight"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_stock_operation_wizard" model="ir.actions.act_window">
+        <field name="name">Change Locations</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="res_model">stock.operation.wizard</field>
+        <field name="binding_model_id" ref="stock.model_stock_move_line"/>
+        <field name="binding_view_types">list</field>
+        <field name="groups_id" eval="[(4, ref('stock.group_stock_multi_locations'))]"/>
+    </record>
+
+</odoo>
