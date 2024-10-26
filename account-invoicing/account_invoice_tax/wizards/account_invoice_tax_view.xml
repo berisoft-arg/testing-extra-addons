@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="view_account_invoice_tax" model="ir.ui.view">
+        <field name="name">account.invoce.tax.form</field>
+        <field name="model">account.invoice.tax</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="company_id" invisible="1"/>
+                    <field name="move_id" invisible="1"/>
+                    <field colspan="2" nolabel="1" name="tax_line_ids">
+                        <tree decoration-info="new_tax == True" editable="bottom">
+                            <field name="tax_id" domain="[('type_tax_use', '=', 'purchase'), ('company_id', '=', parent.company_id)]" options="{'no_create': True, 'no_edit': True}"/>
+                            <field name="amount"/>
+                            <field name="new_tax" column_invisible="True"/>
+                        </tree>
+                    </field>
+                </group>
+                <footer>
+                    <button string='Update' name="action_update_tax" type="object" class="btn-primary" />
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_view_account_invoice_tax" model="ir.actions.act_window">
+        <field name="name">Edit tax lines</field>
+        <field name="res_model">account.invoice.tax</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>
