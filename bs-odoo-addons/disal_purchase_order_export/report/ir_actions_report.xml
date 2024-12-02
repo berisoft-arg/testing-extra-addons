@@ -1,9 +1,0 @@
-<odoo>
-    <record id="action_purchase_order_xlsx" model="ir.actions.report">
-        <field name="name">Purchase Order XLSX</field>
-        <field name="model">purchase.order</field>
-        <field name="report_type">xlsx</field>
-        <field name="report_name">purchase_order_xlsx</field>
-        <field name="print_report_name">"productos-template"</field>
-    </record>
-</odoo>
