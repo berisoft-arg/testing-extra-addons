@@ -31,13 +31,13 @@ class AccountVatLedger(models.Model):
     date_from = fields.Date(
         string="Start Date",
         required=True,
-        readonly=True,
+        #readonly=True,
         #states={"draft": [("readonly", False)]},
     )
     date_to = fields.Date(
         string="End Date",
         required=True,
-        readonly=True,
+        #readonly=True,
         #states={"draft": [("readonly", False)]},
     )
     journal_ids = fields.Many2many(
@@ -47,23 +47,23 @@ class AccountVatLedger(models.Model):
         "journal_id",
         string="Journals",
         required=True,
-        readonly=True,
+        #readonly=True,
         #states={"draft": [("readonly", False)]},
     )
     first_page = fields.Integer(
         "First Page",
         required=True,
-        readonly=True,
+        #readonly=True,
         #states={"draft": [("readonly", False)]},
     )
     last_page = fields.Integer(
         "Last Page",
-        readonly=True,
+        #readonly=True,
         #states={"draft": [("readonly", False)]},
     )
     presented_ledger = fields.Binary(
         "Presented Ledger",
-        readonly=True,
+        #readonly=True,
         #states={"draft": [("readonly", False)]},
     )
     presented_ledger_name = fields.Char()
